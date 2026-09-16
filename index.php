@@ -103,13 +103,6 @@
 
 				<li>
 					<a href="#">
-						<i class="fa fa-cogs" aria-hidden="true"></i>
-						<span>Settings</span>
-					</a>
-				</li>
-
-				<li>
-					<a href="#">
 						<i class="fa fa-sign-out" aria-hidden="true"></i>
 						<span>Logout</span>
 					</a>
@@ -120,8 +113,6 @@
 			}
 			?>
 			
-		<section class="section-1">
-			<h1>WELCOME</h1>
 	
 		</section>
 		</nav>
