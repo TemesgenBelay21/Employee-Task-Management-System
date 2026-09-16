@@ -3,7 +3,7 @@
 <head>
 	<title>Dashboard</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 	<input type="checkbox" id="checkbox">
@@ -18,7 +18,7 @@
 	<div class="body">
 		<nav class="side-bar">
 			<div class="user-p">
-				<img src="img/user.png">
+				<img src="../assets/img/user.png">
 				<h4>Temesgen</h4>
 			</div>
 
