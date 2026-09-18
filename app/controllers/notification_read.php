@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/session.php';
 requireAuth('employee');
 
 $id = (int)($_GET['id'] ?? 0);
-$back = $_GET['back'] ?? '../public/employee/notifications.php';
+$back = $_GET['back'] ?? '../../public/employee/notifications.php';
 
 if ($id > 0) {
     $stmt = $pdo->prepare('UPDATE notifications SET is_read = 1 WHERE id = ? AND employee_id = ?');
