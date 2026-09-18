@@ -45,6 +45,7 @@ function setSession($user)
 function logout()
 {
     session_destroy();
-    header('Location: ../login.php');
+
+    header('Location: ../../public/login.php');
     exit;
 }
