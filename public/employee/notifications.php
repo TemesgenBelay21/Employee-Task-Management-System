@@ -3,9 +3,7 @@ require_once __DIR__ . '/../../app/includes/session.php';
 requireAuth('employee');
 require_once __DIR__ . '/../../app/includes/employee_header.php';
 
-$unread = (int)$pdo->prepare('SELECT COUNT(*) FROM notifications WHERE employee_id = ? AND is_read = 0');
-$unread->execute([$user['id']]);
-$unreadCount = $unread->fetchColumn();
+$unreadCount = unreadCount($pdo, $user['id']);
 
 $allStmt = $pdo->prepare(
     'SELECT * FROM notifications WHERE employee_id = ? ORDER BY created_at DESC, id DESC'
