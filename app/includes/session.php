@@ -12,10 +12,12 @@ function isLoggedIn()
 function requireAuth($role = null)
 {
     if (!isLoggedIn()) {
-        redirect('../login.php');
+        header('Location: ../login.php');
+        exit;
     }
     if ($role !== null && ($_SESSION['role'] ?? '') !== $role) {
-        redirect('../login.php');
+        header('Location: ../login.php');
+        exit;
     }
 }
 
