@@ -15,10 +15,10 @@ if (isset($_POST['username'], $_POST['password'])) {
     if ($user && password_verify($password, $user['password'])) {
         setSession($user);
         if ($user['role'] === 'admin') {
-            redirect('../public/admin/dashboard.php');
+            redirect('../../public/admin/dashboard.php');
         }
-        redirect('../public/employee/dashboard.php');
+        redirect('../../public/employee/dashboard.php');
     }
 }
 
-redirect('../public/login.php?error=1&username=' . urlencode($username ?? ''));
+redirect('../../public/login.php?error=1&username=' . urlencode($username ?? ''));
