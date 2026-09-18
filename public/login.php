@@ -14,7 +14,7 @@
 <body class="login-body">
 
     <form method="post" action="../app/controllers/login.php" class="shadow p-4 login-card" autocomplete="off">
-        <h3 class="display-1 text-center">Task Pro</h3>
+        <h3 class="text-center">Task <b>Pro</b></h3>
         <p class="text-center lead mb-4">Login to your account</p>
 
         <?php if (isset($_GET['error'])): ?>
