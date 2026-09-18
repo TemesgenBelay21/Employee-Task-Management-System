@@ -11,4 +11,4 @@ if ($id > 0 && $id !== (int)($_SESSION['user_id'] ?? 0)) {
     $stmt->execute([$id, 'employee']);
 }
 
-redirect('../public/admin/manage_users.php');
+redirect('../../public/admin/manage_users.php');
