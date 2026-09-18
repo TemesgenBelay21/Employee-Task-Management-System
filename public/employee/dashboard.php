@@ -18,48 +18,48 @@ $noDeadline= (int)$pdo->query("SELECT COUNT(*) FROM tasks WHERE assigned_to = $u
 </div>
 
 <div class="stat-grid">
-    <div class="stat-card">
+    <a class="stat-card" href="my_task.php">
         <div class="stat-icon blue"><i class="fa fa-tasks" aria-hidden="true"></i></div>
         <div class="stat-info">
             <div class="count"><?php echo $myTasks; ?></div>
             <div class="label">My Tasks</div>
         </div>
-    </div>
-    <div class="stat-card">
+    </a>
+    <a class="stat-card" href="my_task.php?filter=overdue">
         <div class="stat-icon red"><i class="fa fa-hourglass-end" aria-hidden="true"></i></div>
         <div class="stat-info">
             <div class="count"><?php echo $overdue; ?></div>
             <div class="label">Overdue</div>
         </div>
-    </div>
-    <div class="stat-card">
+    </a>
+    <a class="stat-card" href="my_task.php?filter=no_deadline">
         <div class="stat-icon purple"><i class="fa fa-calendar-o" aria-hidden="true"></i></div>
         <div class="stat-info">
             <div class="count"><?php echo $noDeadline; ?></div>
             <div class="label">No Deadline</div>
         </div>
-    </div>
-    <div class="stat-card">
+    </a>
+    <a class="stat-card" href="my_task.php">
         <div class="stat-icon orange"><i class="fa fa-hourglass-half" aria-hidden="true"></i></div>
         <div class="stat-info">
             <div class="count"><?php echo $myPending; ?></div>
             <div class="label">Pending</div>
         </div>
-    </div>
-    <div class="stat-card">
+    </a>
+    <a class="stat-card" href="my_task.php">
         <div class="stat-icon teal"><i class="fa fa-spinner" aria-hidden="true"></i></div>
         <div class="stat-info">
             <div class="count"><?php echo $myInProg; ?></div>
             <div class="label">In Progress</div>
         </div>
-    </div>
-    <div class="stat-card">
+    </a>
+    <a class="stat-card" href="my_task.php">
         <div class="stat-icon green"><i class="fa fa-check-circle" aria-hidden="true"></i></div>
         <div class="stat-info">
             <div class="count"><?php echo $myDone; ?></div>
             <div class="label">Completed</div>
         </div>
-    </div>
+    </a>
 </div>
 
 <?php require_once __DIR__ . '/../../app/includes/employee_footer.php'; ?>
