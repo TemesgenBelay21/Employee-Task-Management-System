@@ -40,7 +40,7 @@ $employees = $pdo->query("SELECT * FROM user WHERE role = 'employee' ORDER BY id
                         <td><?php echo ucfirst($emp['role']); ?></td>
                         <td>
                             <a href="edit_user.php?id=<?php echo $emp['id']; ?>" class="btn btn-info btn-sm action-btn">Edit</a>
-                            <a href="../../app/controllers/delete_user.php?id=<?php echo $emp['id']; ?>"
+                            <a href="<?php echo url('controllers/delete_user.php?id=' . $emp['id']); ?>"
                                class="btn btn-danger btn-sm action-btn"
                                data-confirm="Delete <?php echo esc($emp['full_name']); ?>? This will also remove their tasks and notifications.">Delete</a>
                         </td>
