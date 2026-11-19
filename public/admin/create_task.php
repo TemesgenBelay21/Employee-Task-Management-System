@@ -15,7 +15,7 @@ $employees = $stmt->fetchAll();
     <div class="banner banner-success">Task created and assigned successfully</div>
 <?php endif; ?>
 
-<form method="post" action="../../app/controllers/task_save.php" class="form-card">
+<form method="post" action="<?php echo url('controllers/task_save.php'); ?>" class="form-card">
     <div class="form-group">
         <label class="form-label" for="title">Title</label>
         <input type="text" class="form-control" id="title" name="title" required>
