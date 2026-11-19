@@ -20,7 +20,7 @@ $recentNotifs = $stmt->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo asset('css/style.css'); ?>">
 </head>
 
 <body>
@@ -43,7 +43,7 @@ $recentNotifs = $stmt->fetchAll();
                         <?php if ($recentNotifs): ?>
                             <?php foreach ($recentNotifs as $n): ?>
                                 <a class="notif-drop-item <?php echo $n['is_read'] ? '' : 'unread'; ?>"
-                                   href="../../app/controllers/notification_read.php?id=<?php echo $n['id']; ?>">
+                                   href="<?php echo url('controllers/notification_read.php?id=' . $n['id']); ?>">
                                     <?php echo esc($n['message']); ?>
                                     <small><?php echo date('M d, Y H:i', strtotime($n['created_at'])); ?></small>
                                 </a>
@@ -61,7 +61,7 @@ $recentNotifs = $stmt->fetchAll();
         <div class="body">
             <nav class="side-bar" id="sidebar">
                 <div class="user-p">
-                    <img src="../../assets/img/user.png" alt="avatar">
+                    <img src="<?php echo asset('img/user.png'); ?>" alt="avatar">
                     <h4>@<?php echo esc($user['username']); ?></h4>
                 </div>
                 <ul>
@@ -78,7 +78,7 @@ $recentNotifs = $stmt->fetchAll();
                         <a href="notifications.php"><i class="fa fa-bell" aria-hidden="true"></i><span>Notifications</span></a>
                     </li>
                     <li>
-                        <a href="../../app/controllers/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Logout</span></a>
+                        <a href="<?php echo url('controllers/logout.php'); ?>"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Logout</span></a>
                     </li>
                 </ul>
             </nav>
