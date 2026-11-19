@@ -1,9 +1,11 @@
 <?php
 
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'task management db');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+require_once __DIR__ . '/config.php';
+
+define('DB_HOST', getenv('DB_HOST') ?: 'mysql-db01.remote');
+define('DB_NAME', getenv('DB_NAME') ?: 'task-management');
+define('DB_USER', getenv('DB_USER') ?: 'task-management-admin');
+define('DB_PASS', getenv('DB_PASS') ?: '');
 
 try {
     $pdo = new PDO(
@@ -16,5 +18,9 @@ try {
         ]
     );
 } catch (PDOException $e) {
-    die('Database connection failed: ' . $e->getMessage());
+    error_log('Database connection failed: ' . $e->getMessage());
+    if (defined('APP_DEBUG') && APP_DEBUG) {
+        die('Database connection failed: ' . $e->getMessage());
+    }
+    die('Database connection failed. Please try again later.');
 }
