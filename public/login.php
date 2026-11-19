@@ -8,12 +8,12 @@
     <title>Login | Task Management System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo asset('css/style.css'); ?>">
 </head>
 
 <body class="login-body">
 
-    <form method="post" action="../app/controllers/login.php" class="shadow p-4 login-card" autocomplete="off">
+    <form method="post" action="<?php echo url('controllers/login.php'); ?>" class="shadow p-4 login-card" autocomplete="off">
         <h3 class="text-center">Task <b>Pro</b></h3>
         <p class="text-center lead mb-4">Login to your account</p>
 
