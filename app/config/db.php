@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/config.php';
 
-define('DB_HOST', getenv('DB_HOST') ?: 'mysql-db01.remote');
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
 define('DB_NAME', getenv('DB_NAME') ?: 'task-management');
 define('DB_USER', getenv('DB_USER') ?: 'task-management-admin');
 define('DB_PASS', getenv('DB_PASS') ?: '');
