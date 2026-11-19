@@ -81,7 +81,7 @@ $labels = [
                         <td><?php echo statusBadge($task['status']); ?></td>
                         <td>
                             <a href="edit_task.php?id=<?php echo $task['id']; ?>" class="btn btn-info btn-sm">Edit</a>
-                            <a href="../../app/controllers/task_delete.php?id=<?php echo $task['id']; ?>"
+                            <a href="<?php echo url('controllers/task_delete.php?id=' . $task['id']); ?>"
                                class="btn btn-danger btn-sm" data-confirm="Delete this task and all its notifications?">Delete</a>
                         </td>
                     </tr>
