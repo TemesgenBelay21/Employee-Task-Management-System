@@ -14,7 +14,7 @@ $stmt->execute([$id]);
 $task = $stmt->fetch();
 
 if (!$task) {
-    redirect('all_tasks.php');
+    redirect(url('admin/all_tasks.php'));
 }
 
 $employees = $pdo->query("SELECT id, full_name FROM user WHERE role = 'employee' ORDER BY full_name")->fetchAll();
@@ -31,7 +31,7 @@ $employees = $pdo->query("SELECT id, full_name FROM user WHERE role = 'employee'
     <div class="banner banner-success">Task updated successfully</div>
 <?php endif; ?>
 
-<form method="post" action="../../app/controllers/task_save.php" class="form-card">
+<form method="post" action="<?php echo url('controllers/task_save.php'); ?>" class="form-card">
     <input type="hidden" name="task_id" value="<?php echo (int)$task['id']; ?>">
 
     <div class="form-group">
