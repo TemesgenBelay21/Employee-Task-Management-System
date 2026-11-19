@@ -1,8 +1,8 @@
 <?php
 
-require_once __DIR__ . '/../config/db.php';
-require_once __DIR__ . '/../includes/session.php';
-require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../../app/config/db.php';
+require_once __DIR__ . '/../../app/includes/session.php';
+require_once __DIR__ . '/../../app/includes/functions.php';
 requireAuth('admin');
 
 $id = (int)($_GET['id'] ?? 0);
@@ -12,4 +12,4 @@ if ($id > 0 && $id !== (int)($_SESSION['user_id'] ?? 0)) {
     $stmt->execute([$id, 'employee']);
 }
 
-redirect('../../public/admin/manage_users.php');
+redirect(url('admin/manage_users.php'));
