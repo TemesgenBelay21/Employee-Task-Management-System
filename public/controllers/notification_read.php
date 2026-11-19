@@ -1,11 +1,14 @@
 <?php
 
-require_once __DIR__ . '/../config/db.php';
-require_once __DIR__ . '/../includes/session.php';
+require_once __DIR__ . '/../../app/config/db.php';
+require_once __DIR__ . '/../../app/includes/session.php';
 requireAuth('employee');
 
 $id = (int)($_GET['id'] ?? 0);
-$back = $_GET['back'] ?? '../../public/employee/notifications.php';
+$back = $_GET['back'] ?? 'employee/notifications.php';
+if (!preg_match('#^(admin|employee)/[A-Za-z0-9_/.-]+\.php$#', $back)) {
+    $back = 'employee/notifications.php';
+}
 
 if ($id > 0) {
     $stmt = $pdo->prepare('UPDATE notifications SET is_read = 1 WHERE id = ? AND employee_id = ?');
@@ -15,5 +18,5 @@ if ($id > 0) {
     $stmt->execute([$_SESSION['user_id']]);
 }
 
-header('Location: ' . $back);
+header('Location: ' . url($back));
 exit;
