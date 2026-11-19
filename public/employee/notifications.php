@@ -21,7 +21,7 @@ $notifs = $allStmt->fetchAll();
 
 <?php if ($unreadCount > 0): ?>
     <div class="right-push">
-        <a href="../../app/controllers/notification_read.php?all=1&back=../../public/employee/notifications.php"
+        <a href="<?php echo url('controllers/notification_read.php?all=1&back=' . urlencode('employee/notifications.php')); ?>"
            class="btn btn-success btn-sm">Mark All Read</a>
     </div>
 <?php endif; ?>
