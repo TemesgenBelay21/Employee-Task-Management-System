@@ -1,8 +1,8 @@
 -- Task Pro — Task Management System schema
--- Database: task_management_db (existing XAMPP DB named "task management db" used at runtime)
+-- Database: task-management
 
-CREATE DATABASE IF NOT EXISTS `task management db`;
-USE `task management db`;
+CREATE DATABASE IF NOT EXISTS `task-management`;
+USE `task-management`;
 
 CREATE TABLE IF NOT EXISTS user (
     id int primary key auto_increment,
