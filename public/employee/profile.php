@@ -16,9 +16,14 @@ $mine = $stmt->fetch();
 <?php if (isset($_GET['success'])): ?>
     <div class="banner banner-success">Profile updated successfully</div>
 <?php endif; ?>
+<?php if (isset($_GET['error'])): ?>
+    <div class="banner banner-error">
+        <?php echo ($_GET['error'] === 'duplicate') ? 'That username is already taken' : 'Please fill in all required fields'; ?>
+    </div>
+<?php endif; ?>
 
 <div class="form-card">
-    <form method="post" action="../../app/controllers/profile_save.php">
+    <form method="post" action="<?php echo url('controllers/profile_save.php'); ?>">
         <div class="form-group">
             <label class="form-label" for="full_name">Full Name</label>
             <input type="text" class="form-control" id="full_name" name="full_name"
