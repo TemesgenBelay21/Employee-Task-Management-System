@@ -1,6 +1,18 @@
 <?php
 
+require_once __DIR__ . '/../config/config.php';
+
 if (session_status() === PHP_SESSION_NONE) {
+    $secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+        || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
+
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'secure' => $secure,
+        'httponly' => true,
+        'samesite' => 'Lax',
+    ]);
     session_start();
 }
 
@@ -12,11 +24,11 @@ function isLoggedIn()
 function requireAuth($role = null)
 {
     if (!isLoggedIn()) {
-        header('Location: ../login.php');
+        header('Location: ' . url('login.php'));
         exit;
     }
     if ($role !== null && ($_SESSION['role'] ?? '') !== $role) {
-        header('Location: ../login.php');
+        header('Location: ' . url('login.php'));
         exit;
     }
 }
@@ -46,6 +58,6 @@ function logout()
 {
     session_destroy();
 
-    header('Location: ../../public/login.php');
+    header('Location: ' . url('login.php'));
     exit;
 }
