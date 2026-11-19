@@ -1,8 +1,8 @@
 <?php
 
-require_once __DIR__ . '/../config/db.php';
-require_once __DIR__ . '/../includes/session.php';
-require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../../app/config/db.php';
+require_once __DIR__ . '/../../app/includes/session.php';
+require_once __DIR__ . '/../../app/includes/functions.php';
 requireAuth();
 
 $user   = currentUser();
@@ -32,7 +32,7 @@ if ($user['role'] === 'admin') {
             $stmt->execute([$assignedTo, $taskId, "'" . $title . "' has been assigned to you. Please review and start working on it.", 'New Task Assigned']);
         }
 
-        redirect('../../public/admin/edit_task.php?id=' . $taskId . '&success=1');
+        redirect(url('admin/edit_task.php?id=' . $taskId . '&success=1'));
     }
 
     $stmt = $pdo->prepare('SELECT assigned_to FROM tasks WHERE id = ?');
@@ -53,7 +53,7 @@ if ($user['role'] === 'admin') {
         $stmt->execute([$assignedTo, $taskId, "'" . $title . "' has been assigned to you. Please review and start working on it.", 'New Task Assigned']);
     }
 
-    redirect('../../public/admin/edit_task.php?id=' . $taskId . '&success=1');
+    redirect(url('admin/edit_task.php?id=' . $taskId . '&success=1'));
 }
 
 requireAuth('employee');
@@ -65,4 +65,4 @@ if (!in_array($status, ['pending', 'in_progress', 'completed'])) {
 $stmt = $pdo->prepare('UPDATE tasks SET status = ? WHERE id = ? AND assigned_to = ?');
 $stmt->execute([$status, $taskId, $user['id']]);
 
-redirect('../../public/employee/edit_task.php?id=' . $taskId . '&success=1');
+redirect(url('employee/edit_task.php?id=' . $taskId . '&success=1'));
