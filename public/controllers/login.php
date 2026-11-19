@@ -1,8 +1,8 @@
 <?php
 
-require_once __DIR__ . '/../config/db.php';
-require_once __DIR__ . '/../includes/functions.php';
-require_once __DIR__ . '/../includes/session.php';
+require_once __DIR__ . '/../../app/config/db.php';
+require_once __DIR__ . '/../../app/includes/functions.php';
+require_once __DIR__ . '/../../app/includes/session.php';
 
 if (isset($_POST['username'], $_POST['password'])) {
     $username = trim($_POST['username']);
@@ -15,10 +15,10 @@ if (isset($_POST['username'], $_POST['password'])) {
     if ($user && password_verify($password, $user['password'])) {
         setSession($user);
         if ($user['role'] === 'admin') {
-            redirect('../../public/admin/dashboard.php');
+            redirect(url('admin/dashboard.php'));
         }
-        redirect('../../public/employee/dashboard.php');
+        redirect(url('employee/dashboard.php'));
     }
 }
 
-redirect('../../public/login.php?error=1&username=' . urlencode($username ?? ''));
+redirect(url('login.php?error=1&username=' . urlencode($username ?? '')));
