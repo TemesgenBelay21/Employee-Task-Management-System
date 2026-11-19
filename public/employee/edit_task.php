@@ -10,7 +10,7 @@ $stmt->execute([$id, $user['id']]);
 $task = $stmt->fetch();
 
 if (!$task) {
-    redirect('my_task.php');
+    redirect(url('employee/my_task.php'));
 }
 ?>
 <div class="page-title">
@@ -25,7 +25,7 @@ if (!$task) {
 <?php endif; ?>
 
 <div class="form-card">
-    <form method="post" action="../../app/controllers/task_save.php">
+    <form method="post" action="<?php echo url('controllers/task_save.php'); ?>">
         <input type="hidden" name="task_id" value="<?php echo $task['id']; ?>">
 
         <div class="form-group">
