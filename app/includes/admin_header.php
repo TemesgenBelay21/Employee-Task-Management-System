@@ -15,7 +15,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo asset('css/style.css'); ?>">
 </head>
 
 <body>
@@ -32,7 +32,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         <div class="body">
             <nav class="side-bar" id="sidebar">
                 <div class="user-p">
-                    <img src="../../assets/img/user.png" alt="avatar">
+                    <img src="<?php echo asset('img/user.png'); ?>" alt="avatar">
                     <h4>@<?php echo esc($user['username']); ?></h4>
                 </div>
                 <ul>
@@ -49,7 +49,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                         <a href="all_tasks.php"><i class="fa fa-tasks" aria-hidden="true"></i><span>All Tasks</span></a>
                     </li>
                     <li>
-                        <a href="../../app/controllers/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Logout</span></a>
+                        <a href="<?php echo url('controllers/logout.php'); ?>"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Logout</span></a>
                     </li>
                 </ul>
             </nav>
