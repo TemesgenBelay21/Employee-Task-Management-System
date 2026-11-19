@@ -9,7 +9,7 @@ $stmt->execute([$id, 'employee']);
 $emp = $stmt->fetch();
 
 if (!$emp) {
-    redirect('manage_users.php');
+    redirect(url('admin/manage_users.php'));
 }
 ?>
 
