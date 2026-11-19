@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../config/config.php';
+
 function redirect($url)
 {
     header('Location: ' . $url);
